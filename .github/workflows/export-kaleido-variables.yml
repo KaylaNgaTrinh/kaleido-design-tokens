@@ -1,0 +1,62 @@
+name: Export Kaleido Variables
+
+on:
+  schedule:
+    # Run every Monday at 12:00 AM UTC
+    - cron: '0 0 * * 1'
+  # Allow manual trigger from GitHub UI
+  workflow_dispatch:
+
+jobs:
+  export-variables:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Export Figma variables
+        env:
+          FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
+        run: npm run export
+
+      - name: Check for changes
+        id: git-status
+        run: |
+          if git diff --exit-code variables.json > /dev/null 2>&1; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push changes
+        if: steps.git-status.outputs.changed == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "Figma Variables Bot"
+          git add variables.json
+          git commit -m "chore: update Figma variables - $(date -u +'%Y-%m-%d %H:%M:%S UTC')"
+          git push
+
+      - name: Log export summary
+        run: |
+          echo "📊 Export Summary"
+          echo "==============="
+          if [ -f variables.json ]; then
+            echo "✅ variables.json updated"
+            echo "Size: $(du -h variables.json | cut -f1)"
+            echo "Last modified: $(date)"
+          fi

@@ -1,0 +1,15 @@
+{
+  "name": "kaleido-variables-export",
+  "version": "1.0.0",
+  "description": "Export Figma Kaleido Design System variables to JSON",
+  "main": "export-variables.js",
+  "scripts": {
+    "export": "node export-variables.js"
+  },
+  "keywords": ["figma", "design-tokens", "variables"],
+  "author": "Kayla Trinh",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^2.7.0"
+  }
+}

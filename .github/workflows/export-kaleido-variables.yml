@@ -49,7 +49,8 @@ jobs:
           git config --local user.name "Figma Variables Bot"
           git add variables.json
           git commit -m "chore: update Figma variables - $(date -u +'%Y-%m-%d %H:%M:%S UTC')"
-          git push
+          git pull --rebase origin main
+          git push origin main
 
       - name: Log export summary
         run: |

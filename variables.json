@@ -1,7 +1,7 @@
 {
   "metadata": {
     "fileKey": "X0woErS5JGnv0zDLNhjKkg",
-    "exportedAt": "2026-05-04T02:24:20.561Z",
+    "exportedAt": "2026-05-11T02:38:06.827Z",
     "exportedBy": "Figma Variables Exporter (Local Only)",
     "filterNote": "Only local collections are exported; linked library collections are excluded"
   },
@@ -996,11 +996,11 @@
           "values": {
             "209:0": {
               "type": "VARIABLE_ALIAS",
-              "id": "VariableID:209:1013"
+              "id": "VariableID:443:3507"
             },
             "6578:0": {
               "type": "VARIABLE_ALIAS",
-              "id": "VariableID:209:1013"
+              "id": "VariableID:443:3507"
             }
           }
         },
@@ -1860,7 +1860,7 @@
           "values": {
             "209:0": {
               "type": "VARIABLE_ALIAS",
-              "id": "VariableID:209:1013"
+              "id": "VariableID:232:1058"
             },
             "6578:0": {
               "type": "VARIABLE_ALIAS",
@@ -2091,6 +2091,51 @@
           "values": {
             "209:0": "Bold",
             "6578:0": "Bold"
+          }
+        },
+        {
+          "id": "VariableID:7511:16997",
+          "name": "component-overrides/selector/border/selected",
+          "type": "COLOR",
+          "values": {
+            "209:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2645:16116"
+            },
+            "6578:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2645:16116"
+            }
+          }
+        },
+        {
+          "id": "VariableID:7511:16996",
+          "name": "component-overrides/selector/border/unselected",
+          "type": "COLOR",
+          "values": {
+            "209:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:232:1058"
+            },
+            "6578:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:232:1058"
+            }
+          }
+        },
+        {
+          "id": "VariableID:7511:17000",
+          "name": "component-overrides/selector/container/selected",
+          "type": "COLOR",
+          "values": {
+            "209:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:232:1090"
+            },
+            "6578:0": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:232:1090"
+            }
           }
         },
         {
